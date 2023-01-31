@@ -1,31 +1,35 @@
 {
-  "name": "first-app",
+  "name": "node-first-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "source/server.ts",
   "dependencies": {
-    "express": "^4.18.2",
-    "typescript": "^4.9.4"
-  },
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/config": "^3.3.0",
-    "@types/cors": "^2.8.13",
+    "@prisma/client": "^4.9.0",
+    "@types/axios": "^0.14.0",
     "@types/express": "^4.17.16",
-    "@types/jsonwebtoken": "^9.0.1",
-    "@types/lodash": "^4.14.191",
-    "@types/mongoose": "^5.11.97",
-    "@types/nanoid": "^3.0.0",
-    "@types/pino": "^7.0.5",
-    "@types/pino-pretty": "^5.0.0",
-    "@types/yup": "^0.32.0",
-    "config": "^3.3.9",
-    "pimp": "^0.2.3"
+    "@types/morgan": "^1.9.4",
+    "axios": "^1.2.6",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.9.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
+  "devDependencies": {},
   "scripts": {
-    "dev": "node dist/src/app.js"
+    "dev": "nodemon source/server.ts",
+    "build": "rm -rf build/ && prettier --write source/ && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acool-kaz/node-first-app.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acool-kaz/node-first-app/issues"
+  },
+  "homepage": "https://github.com/acool-kaz/node-first-app#readme"
 }

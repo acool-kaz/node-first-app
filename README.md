@@ -1,1 +1,0 @@
-# node-first-app
