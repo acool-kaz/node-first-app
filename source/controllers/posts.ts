@@ -39,9 +39,9 @@ const getPost = async (req: Request, res: Response, next: NextFunction) => {
 const updatePost = async (req: Request, res: Response, next: NextFunction) => {
     let id: string = req.params.id;
 
-    let title: string = req.body.title != null ? req.body.title : undefined;
-    let body: string = req.body.body != null ? req.body.body : undefined;
-    let userId: number = req.body.userId != null ? req.body.userId : undefined;
+    let title: string = req.body.title || undefined;
+    let body: string = req.body.body || undefined;
+    let userId: number = req.body.userId || undefined;
 
     await db.client.post.update({
         where: { id: parseInt(id) },

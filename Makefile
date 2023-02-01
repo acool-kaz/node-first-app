@@ -6,3 +6,6 @@ up-pq:
 
 init:
 	npm install typescript --save-dev
+
+migrate-up:
+	npx prisma migrate dev
