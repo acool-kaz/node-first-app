@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: db
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=postgres
+    ports:
+      - "5436:5432"
+  app:
+    container_name: app
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://postgres:qwerty@db:5432/postgres?schema=public
+    ports:
+      - 3000:3000
+    external_links:
+      - postgres
+    depends_on:
+      - postgres

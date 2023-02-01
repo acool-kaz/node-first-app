@@ -1,6 +1,8 @@
 import express, { Express } from 'express';
 import morgan from 'morgan';
+import db from './database/connect';
 import routes from './routes/posts';
+
 
 const app = express();
 
@@ -31,5 +33,12 @@ const PORT: string = process.env.PORT || "3000";
 
 app.listen(PORT, () => {
     console.log(`The server is running on port http://localhost:${PORT}`)
-}
-);
+
+    db.connectDB()
+        .then(() => {
+            console.log(`Database connected`);
+        })
+        .catch(err => {
+            console.log(`db error ${err}`);
+        })
+});

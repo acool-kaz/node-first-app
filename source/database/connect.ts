@@ -1,5 +1,9 @@
-import {PrismaClient} from 'prisma/prisma-client'
+import { PrismaClient } from 'prisma/prisma-client'
 
-const db = new PrismaClient();
+const client = new PrismaClient();
 
-export default db
+async function connectDB() {
+    await client.$connect()
+}
+
+export default { connectDB, client }
